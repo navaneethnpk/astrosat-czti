@@ -19,7 +19,9 @@ given_no = int(input('Enter number of orbits to check: ')) #Asking how many orbi
 # args = parser.parse_args() #parse the arguments
 # given_no = args.arg1
 
-missing = [] #created a list to add missing orbits
+missing = [] 	#created a list to add missing orbits
+flag = 0 #Making a flag to print result properly
+
 for i in range(given_no-1): #looping in "given number of orbits - 1"
 	if len(orbit_id[i]) != 43: #checking and accepting orbit id's with character length = 43. Skipping merged entries
 		continue
@@ -39,4 +41,8 @@ for i in range(given_no-1): #looping in "given number of orbits - 1"
 		else: #if datagap have different oservation ID's, then below lines will print
 			print(f'--> Data gap in obervations {obs_id[i+1][-4:]} and {obs_id[i][-4:]} between orbits {orbit_id[i+1][-5:]} and {orbit_id[i][-5:]} of ~ {gap_str[:1]} hours, {gap_str[2:4]} minutes, {gap_str[5:7]} seconds ({gap}).')
 			print(f'---- Missing orbits: {missing}.\n')
+		flag = 1 #Flag will be 1 when if condition is satisfied.
 	missing.clear() #clearing the missing orbit list to print new data gap orbits
+
+if flag == 0: #checking the flag value is zero or not
+    print(f'There are no data gaps in the given number of orbits')
