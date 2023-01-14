@@ -44,7 +44,7 @@ for i in range(len(checklist)):
 		if noise[i] >= 5.0:
 			ObsID_val.append(ObsID)
 			OrbitID_val.append(OrbitID)
-			noise_val.append(f'{quadrant[i]} = {noise[i]}%')
+			noise_val.append(f'{quadrant[i]} = {noise[i]:5.2f}%')
 			if quadrant[i] == 'A':
 				DetID_val.append(int(DetID[0]))
 				PixID_val.append(int(PixID[0]))
@@ -60,6 +60,6 @@ for i in range(len(checklist)):
 			flag = 1
 # Printing the Noise Ratio columns in reverse order
 for j in reversed(range(len(ObsID_val))):
-	print(f' {ObsID_val[j]}     {OrbitID_val[j]}      {noise_val[j].ljust(10)}      {DetID_val[j]}     {PixID_val[j]}')
+	print(f' {ObsID_val[j]}     {OrbitID_val[j]}      {noise_val[j].ljust(10)}      {DetID_val[j]:02d}     {PixID_val[j]:03d}')
 if flag == 0: 
     print(f'There are no noise ratio to show for this given number of orbits!')
