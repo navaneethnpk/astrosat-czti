@@ -4,4 +4,6 @@
 
 + `dqr-data_gap_search.py`: This is a code to find data gaps in czti orbits.
 
-+ `dqr-noise_ratio.py`: This code is to find and print noise ratios
++ `dqr-noise_ratio.py`: This code is to find and print noise ratios.
+
++ `dqr-telemetry_error.py`: This code is to find and print telemetry error.
