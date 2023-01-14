@@ -36,10 +36,10 @@ for i in range(given_no-1): #looping in "given number of orbits - 1"
 			m = m+1 #increasing the lower orbit number
 			missing.append(m) #adding the missing orbits in the list. Orbits in bewteen higher and lower orbits will save
 		if obs_id[i+1] == obs_id[i]: #if datagap have same oservation ID, then below lines will print
-			print(f'--> Data gap in obervation {obs_id[i][-4:]} between orbits {orbit_id[i+1][-5:]} and {orbit_id[i][-5:]} of ~ {gap_str[:1]} hours, {gap_str[2:4]} minutes, {gap_str[5:7]} seconds ({gap}).')
+			print(f'--> Data gap in observation {obs_id[i][-4:]} between orbits {orbit_id[i+1][-5:]} and {orbit_id[i][-5:]} of ~ {gap_str[:1]} hours, {gap_str[2:4]} minutes, {gap_str[5:7]} seconds ({gap}).')
 			print(f'---- Missing orbits: {missing}.\n')
 		else: #if datagap have different oservation ID's, then below lines will print
-			print(f'--> Data gap in obervations {obs_id[i+1][-4:]} and {obs_id[i][-4:]} between orbits {orbit_id[i+1][-5:]} and {orbit_id[i][-5:]} of ~ {gap_str[:1]} hours, {gap_str[2:4]} minutes, {gap_str[5:7]} seconds ({gap}).')
+			print(f'--> Data gap in observations {obs_id[i+1][-4:]} and {obs_id[i][-4:]} between orbits {orbit_id[i+1][-5:]} and {orbit_id[i][-5:]} of ~ {gap_str[:1]} hours, {gap_str[2:4]} minutes, {gap_str[5:7]} seconds ({gap}).')
 			print(f'---- Missing orbits: {missing}.\n')
 		flag = 1 #Flag will be 1 when if condition is satisfied.
 	missing.clear() #clearing the missing orbit list to print new data gap orbits

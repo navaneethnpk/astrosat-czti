@@ -59,7 +59,7 @@ for i in range(len(checklist)):
 				PixID_val.append(int(PixID[9]))
 			flag = 1
 # Printing the Noise Ratio columns in reverse order
-for j in range(len(ObsID_val)):
+for j in reversed(range(len(ObsID_val))):
 	print(f' {ObsID_val[j]}     {OrbitID_val[j]}      {noise_val[j].ljust(10)}      {DetID_val[j]}     {PixID_val[j]}')
 if flag == 0: 
     print(f'There are no noise ratio to show for this given number of orbits!')
