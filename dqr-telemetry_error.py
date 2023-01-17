@@ -26,7 +26,7 @@ for i in range(len(checklist)):
     ObsID = url2[54:75]
     OrbitID = url2[83:88]
     tables = pd.read_html(url2)
-    modeM9,modeSS,modeM0 = tables[1],tables[2],tables[3]
+    modeM0,modeM9,modeSS = tables[1],tables[2],tables[3]
     modeM9_qd,modeM9_tp,modeM9_dp = np.array(modeM9.iloc[:,[0]]),np.array(modeM9.iloc[:,[2]]),np.array(modeM9.iloc[:,[3]])
     modeSS_qd,modeSS_tp,modeSS_dp = np.array(modeSS.iloc[:,[0]]),np.array(modeSS.iloc[:,[2]]),np.array(modeSS.iloc[:,[3]])
     modeM0_qd,modeM0_tp,modeM0_dp = np.array(modeM0.iloc[:,[0]]),np.array(modeM0.iloc[:,[2]]),np.array(modeM0.iloc[:,[3]])
@@ -48,9 +48,8 @@ for i in range(len(checklist)):
     #Checking Telemetry error is > 5 and printing results accordingly
     if any(value > 5 for value in modeM9_val or modeSS_val or modeM0_val):
         print(f'--> Telemetry Error for ObsID = {ObsID} and OrbitID = {OrbitID}')
-        print(f'          Mode M9         Mode SS         Mode M0')
+        print(f'          Mode M0         Mode M9         Mode SS')
         for j in range(4):
-            print(f'       {modeM9_val2[j]}      {modeSS_val2[j]}      {modeM0_val2[j]}')
+            print(f'       {modeM0_val2[j]}      {modeM9_val2[j]}      {modeSS_val2[j]}')
     else:
         print(f'--> No Telemetry Error for ObsID = {ObsID} and OrbitID = {OrbitID}')
-
