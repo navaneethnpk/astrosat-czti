@@ -34,12 +34,21 @@ for i in range(len(checklist)):
 	ObsID = url2[71:75]
 	OrbitID = url2[83:88]
 	tables = pd.read_html(url2)
-	noise_table = tables[5]
-	noise = noise_table['Noise dominated (detector-on time)'].replace({'%':''}, regex=True).astype('float')
-	quadrant = noise_table['Quadrant']
-	noisepix_table = tables[6]
+	# Sometime there will be orbits with missing data integrity tables. Using Try and Except to fix that
+	try:
+		noise_table_no = int(5)
+		noise_table = tables[noise_table_no]
+		noise = noise_table['Noise dominated (detector-on time)'].replace({'%':''}, regex=True).astype('float')
+		quadrant = noise_table['Quadrant']
+	except:
+		noise_table_no = int(4)
+		noise_table = tables[noise_table_no]
+		noise = noise_table['Noise dominated (detector-on time)'].replace({'%':''}, regex=True).astype('float')
+		quadrant = noise_table['Quadrant']
+	noisepix_table = tables[noise_table_no+1]
 	DetID = np.array(noisepix_table.iloc[:,[1]])
 	PixID = np.array(noisepix_table.iloc[:,[2]])
+	#Looping in table and checking noise ratios
 	for i in range(4):
 		if noise[i] >= 5.0:
 			ObsID_val.append(ObsID)
