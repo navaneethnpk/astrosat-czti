@@ -25,7 +25,7 @@ time_input = input("Enter the Date & Time (YYYY-MM-DD HH:MM:SS): ") #Asking for 
 
 given_time = datetime.strptime(time_input, '%Y-%m-%d %H:%M:%S') #Converting the GRB trigger time into time format
 
-print(f'               Orbit Folder                            Start                     End        ')
+print(f'\n               Orbit Folder                            Start                     End        ')
 print(f'--------------------------------------------------------------------------------------------')
 
 flag = 0 #Making a flag to print result properly

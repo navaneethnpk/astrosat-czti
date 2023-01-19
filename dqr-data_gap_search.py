@@ -13,6 +13,7 @@ start_time = dftable['Date/time start'] #Orbit start time
 end_time = dftable['Date/time end'] #Orbit end time
 
 given_no = int(input('Enter number of orbits to check: ')) #Asking how many orbits to check for data gap
+print('\n')
 
 # parser = argparse.ArgumentParser(description='Enter number of orbits to check') #creating the parser
 # parser.add_argument('arg1', type=int, help='Number of orbits') #adding the argument
@@ -45,4 +46,4 @@ for i in range(given_no-1): #looping in "given number of orbits - 1"
 	missing.clear() #clearing the missing orbit list to print new data gap orbits
 
 if flag == 0: #checking the flag value is zero or not
-    print(f'There are no data gaps in the given number of orbits')
+    print(f'--> There are no data gaps in the given number of orbits')

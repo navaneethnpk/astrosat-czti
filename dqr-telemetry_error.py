@@ -19,6 +19,7 @@ for l in links:
 #Asking for number of orbits to check
 nos = int(input("Enter the number of orbits to check: "))
 checklist = linklist[0:nos]
+print('\n')
 
 for i in range(len(checklist)):
     #Checking URL of each orbits and getting details from tables
