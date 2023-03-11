@@ -51,11 +51,12 @@ def convertAStoAll(Astrosat_second):
     Astrosat_iso=Astrosat_yday_obj.iso
     return Astrosat_iso
 
+astrosat_detected = "/home/npk/NPKCZTI/testarea/Astrosat-Detected/"
 print("\n------------------------------------------------------------------------------------------")
 print("*********  Enter the details to create Detection Mail & GCN Draft  *********\n")
 grb_name = str(input('GRB Name: '))
 # Read and Scrape GRB_name.txt file
-file_path = f"/home/npk/NPKCZTI/testarea/Astrosat-Detected/{grb_name}/{grb_name}.txt"
+file_path = f"{astrosat_detected}{grb_name}/{grb_name}.txt"
 if os.path.exists(file_path):
     with open(file_path, 'r') as file:
         content = file.read()
@@ -108,7 +109,7 @@ elif detect == 3:
 else:
     sys.exit("\nGive only above mentioned values. Try again")
 # Read and Scrape T90 files of veto and czti
-folder_path = f"/home/npk/NPKCZTI/testarea/Astrosat-Detected/{grb_name}"
+folder_path = f"{astrosat_detected}{grb_name}"
 # czti_t90data,veto_t90data = "",""
 if czti_key == 1:
     keyword1 = 'czt'
@@ -315,7 +316,7 @@ print("\n-----------------------------------------------------------------------
 gcn_section4 = czti_para + "\n" + veto_para
 gcn_section5 = "\nCZTI is built by a TIFR-led consortium of institutes across India, including VSSC, URSC, IUCAA, SAC, and PRL. The Indian Space Research Organisation funded, managed, and facilitated the project. CZTI GRB detections are reported regularly on the payload site at: http://astrosat.iucaa.in/czti/?q=grb"
 grb_detection_mail = outline1 + "\n" + section1 + "\n" + czti_t90data + "\n" + veto_t90data + "\n" + gcn_section1 + "\n" + gcn_section2 + "\n" + gcn_section3 + "\n" + gcn_section4 + "\n" + gcn_section5
-save_path = f"/home/npk/NPKCZTI/testarea/Astrosat-Detected/{grb_name}/{grb_name}_DetectionMail.txt"
+save_path = f"{astrosat_detected}{grb_name}/{grb_name}_DetectionMail.txt"
 with open(save_path, "w") as file:
     file.write(grb_detection_mail)
 print(f"*** {grb_name}_DetectionMail.txt is created in the GRB folder.")
